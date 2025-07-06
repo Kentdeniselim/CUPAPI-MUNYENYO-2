@@ -29,8 +29,8 @@ class Faunapage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             child: TextField(
-              onChanged: (query) =>
-                  context.read<Prohewan>().setSearchQuery(query),
+              onChanged:
+                  (query) => context.read<Prohewan>().setSearchQuery(query),
               decoration: InputDecoration(
                 labelText: 'Search Animals......',
                 border: OutlineInputBorder(

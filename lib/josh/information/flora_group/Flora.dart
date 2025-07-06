@@ -27,8 +27,8 @@ class Florapage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             child: TextField(
-              onChanged: (query) =>
-                  context.read<Proflora>().setSearchQuery(query),
+              onChanged:
+                  (query) => context.read<Proflora>().setSearchQuery(query),
               decoration: InputDecoration(
                 labelText: 'Search Animals......',
                 border: OutlineInputBorder(
@@ -47,75 +47,76 @@ class Florapage extends StatelessWidget {
                 crossAxisSpacing: 15,
                 mainAxisExtent: 350,
               ),
-              children: floralist.map((flora) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black,
-                        spreadRadius: 3,
-                        blurRadius: 5,
-                        offset: Offset(0, 3),
+              children:
+                  floralist.map((flora) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black,
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Text(
-                            flora['nama'],
-                            style: const TextStyle(
-                              fontSize: 25,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: FadeInImage.assetNetwork(
-                            placeholder: flora['placeholder'],
-                            image: flora['image'],
-                            width: double.infinity,
-                            height: 210,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        SizedBox(
-                          width: double.infinity,
-                          height: 50,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => flora['page'],
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Center(
+                              child: Text(
+                                flora['nama'],
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              textStyle: const TextStyle(fontSize: 18),
-                              backgroundColor: Colors.green,
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                            child: const Text(
-                              "More Info",
-                              style: TextStyle(color: Colors.black),
+                            const SizedBox(height: 10),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: FadeInImage.assetNetwork(
+                                placeholder: flora['placeholder'],
+                                image: flora['image'],
+                                width: double.infinity,
+                                height: 210,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
+                            const SizedBox(height: 10),
+                            SizedBox(
+                              width: double.infinity,
+                              height: 50,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => flora['page'],
+                                    ),
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  textStyle: const TextStyle(fontSize: 18),
+                                  backgroundColor: Colors.green,
+                                ),
+                                child: const Text(
+                                  "More Info",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                );
-              }).toList(),
+                      ),
+                    );
+                  }).toList(),
             ),
           ),
         ],
