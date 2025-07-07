@@ -37,32 +37,33 @@ class _penyu extends State<Penyu> {
         backgroundColor: Colors.green,
         actions: [
           Consumer<BookmarkProvider>(
-              builder: (context, bookmarkProvider, child) {
-            final isBookmarked = bookmarkProvider.isBookmarked("Penyu");
+            builder: (context, bookmarkProvider, child) {
+              final isBookmarked = bookmarkProvider.isBookmarked("Penyu");
 
-            return IconButton(
-              icon: Icon(
-                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: Colors.yellow,
-              ),
-              onPressed: () {
-                bookmarkProvider.toggleBookmark({
-                  'title': 'Penyu',
-                  'image':
-                      'https://1.bp.blogspot.com/-rgGPGu5-wL0/X6JcDPOTl3I/AAAAAAAAFCc/kXpnCuctUFgpL3eLfWYy4jYoe_MOR8dTgCLcBGAsYHQ/s1168/gambar%2Bpenyu%2Bhijau-2.jpg',
-                });
-                final snackBar = SnackBar(
-                  content: Text(
-                    isBookmarked
-                        ? 'Dihapus dari Bookmark'
-                        : 'Ditambahkan ke Bookmark',
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-            );
-          }),
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+                  bookmarkProvider.toggleBookmark({
+                    'title': 'Penyu',
+                    'image':
+                        'https://1.bp.blogspot.com/-rgGPGu5-wL0/X6JcDPOTl3I/AAAAAAAAFCc/kXpnCuctUFgpL3eLfWYy4jYoe_MOR8dTgCLcBGAsYHQ/s1168/gambar%2Bpenyu%2Bhijau-2.jpg',
+                  });
+                  final snackBar = SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? 'Dihapus dari Bookmark'
+                          : 'Ditambahkan ke Bookmark',
+                    ),
+                    duration: Duration(seconds: 1),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.home),
             tooltip: 'Kembali ke Home',

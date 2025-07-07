@@ -35,41 +35,40 @@ class _BungaGardeniaState extends State<BungaGardenia> {
       appBar: AppBar(
         title: Text(
           "Bunga Gardenia",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         backgroundColor: Colors.green,
         actions: [
           Consumer<BookmarkProvider>(
-              builder: (context, bookmarkProvider, child) {
-            final isBookmarked =
-                bookmarkProvider.isBookmarked("Bunga Gardenia");
+            builder: (context, bookmarkProvider, child) {
+              final isBookmarked = bookmarkProvider.isBookmarked(
+                "Bunga Gardenia",
+              );
 
-            return IconButton(
-              icon: Icon(
-                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: Colors.yellow,
-              ),
-              onPressed: () {
-                bookmarkProvider.toggleBookmark({
-                  'title': 'Bunga Gardenia',
-                  'image':
-                      'https://live.staticflickr.com/5803/22583644456_c934c686f3_b.jpg',
-                });
-                final snackBar = SnackBar(
-                  content: Text(
-                    isBookmarked
-                        ? 'Dihapus dari Bookmark'
-                        : 'Ditambahkan ke Bookmark',
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-            );
-          }),
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+                  bookmarkProvider.toggleBookmark({
+                    'title': 'Bunga Gardenia',
+                    'image':
+                        'https://live.staticflickr.com/5803/22583644456_c934c686f3_b.jpg',
+                  });
+                  final snackBar = SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? 'Dihapus dari Bookmark'
+                          : 'Ditambahkan ke Bookmark',
+                    ),
+                    duration: Duration(seconds: 1),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.home),
             tooltip: 'Kembali ke Home',
@@ -133,7 +132,9 @@ class _BungaGardeniaState extends State<BungaGardenia> {
                       Text(
                         "Taksonomi",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       SizedBox(height: 10),
                       buildTextRow("Kingdom", "Plantae"),
@@ -142,8 +143,11 @@ class _BungaGardeniaState extends State<BungaGardenia> {
                       buildTextRow("Ordo", "Gentianales"),
                       buildTextRow("Famili", "Rubiaceae"),
                       buildTextRow("Genus", "Rubiaceae"),
-                      buildTextRow("Spesies", "Gardenia jasminoides",
-                          isItalic: true),
+                      buildTextRow(
+                        "Spesies",
+                        "Gardenia jasminoides",
+                        isItalic: true,
+                      ),
                     ],
                   ),
                 ),
@@ -174,11 +178,12 @@ class _BungaGardeniaState extends State<BungaGardenia> {
               Column(
                 children: [
                   Center(
-                      child: Image.network(
-                    "https://tse3.mm.bing.net/th?id=OIP.03HC2kx5stXdNd-P2_7f3QHaE6&pid=Api&P=0&h=220",
-                    width: 800,
-                    height: 300,
-                  ))
+                    child: Image.network(
+                      "https://tse3.mm.bing.net/th?id=OIP.03HC2kx5stXdNd-P2_7f3QHaE6&pid=Api&P=0&h=220",
+                      width: 800,
+                      height: 300,
+                    ),
+                  ),
                 ],
               ),
               Padding(

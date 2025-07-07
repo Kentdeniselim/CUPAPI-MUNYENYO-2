@@ -35,40 +35,38 @@ class _danauposo extends State<Poso> {
       appBar: AppBar(
         title: Text(
           "Danau Poso",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         backgroundColor: Colors.green,
         actions: [
           Consumer<BookmarkProvider>(
-              builder: (context, bookmarkProvider, child) {
-            final isBookmarked = bookmarkProvider.isBookmarked("Danau Poso");
+            builder: (context, bookmarkProvider, child) {
+              final isBookmarked = bookmarkProvider.isBookmarked("Danau Poso");
 
-            return IconButton(
-              icon: Icon(
-                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: Colors.yellow,
-              ),
-              onPressed: () {
-                bookmarkProvider.toggleBookmark({
-                  'title': 'Danau Poso',
-                  'image':
-                      'https://tse1.mm.bing.net/th?id=OIP.nILnrFHD1eFCuKdWnzZ2VwHaEj&w=291&h=291&c=7',
-                });
-                final snackBar = SnackBar(
-                  content: Text(
-                    isBookmarked
-                        ? 'Dihapus dari Bookmark'
-                        : 'Ditambahkan ke Bookmark',
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-            );
-          }),
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+                  bookmarkProvider.toggleBookmark({
+                    'title': 'Danau Poso',
+                    'image':
+                        'https://tse1.mm.bing.net/th?id=OIP.nILnrFHD1eFCuKdWnzZ2VwHaEj&w=291&h=291&c=7',
+                  });
+                  final snackBar = SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? 'Dihapus dari Bookmark'
+                          : 'Ditambahkan ke Bookmark',
+                    ),
+                    duration: Duration(seconds: 1),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.home),
             tooltip: 'Kembali ke Home',

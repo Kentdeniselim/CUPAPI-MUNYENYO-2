@@ -35,40 +35,38 @@ class _danautoba extends State<Toba> {
       appBar: AppBar(
         title: Text(
           "Danau Toba",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         backgroundColor: Colors.green,
         actions: [
           Consumer<BookmarkProvider>(
-              builder: (context, bookmarkProvider, child) {
-            final isBookmarked = bookmarkProvider.isBookmarked("Danau Toba");
+            builder: (context, bookmarkProvider, child) {
+              final isBookmarked = bookmarkProvider.isBookmarked("Danau Toba");
 
-            return IconButton(
-              icon: Icon(
-                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: Colors.yellow,
-              ),
-              onPressed: () {
-                bookmarkProvider.toggleBookmark({
-                  'title': 'Danau Toba',
-                  'image':
-                      'https://asset.kompas.com/crops/PZkNa1XEcC9huIv3Gd1tHebvzIA=/0x0:780x520/1200x800/data/photo/2023/07/25/64bf6a78dfe73.jpg',
-                });
-                final snackBar = SnackBar(
-                  content: Text(
-                    isBookmarked
-                        ? 'Dihapus dari Bookmark'
-                        : 'Ditambahkan ke Bookmark',
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-            );
-          }),
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+                  bookmarkProvider.toggleBookmark({
+                    'title': 'Danau Toba',
+                    'image':
+                        'https://asset.kompas.com/crops/PZkNa1XEcC9huIv3Gd1tHebvzIA=/0x0:780x520/1200x800/data/photo/2023/07/25/64bf6a78dfe73.jpg',
+                  });
+                  final snackBar = SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? 'Dihapus dari Bookmark'
+                          : 'Ditambahkan ke Bookmark',
+                    ),
+                    duration: Duration(seconds: 1),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.home),
             tooltip: 'Kembali ke Home',

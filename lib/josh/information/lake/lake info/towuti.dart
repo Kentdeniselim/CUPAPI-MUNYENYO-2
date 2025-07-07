@@ -35,40 +35,40 @@ class _danautowuti extends State<Towuti> {
       appBar: AppBar(
         title: Text(
           "Danau Towuti",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         backgroundColor: Colors.green,
         actions: [
           Consumer<BookmarkProvider>(
-              builder: (context, bookmarkProvider, child) {
-            final isBookmarked = bookmarkProvider.isBookmarked("Danau Towuti");
+            builder: (context, bookmarkProvider, child) {
+              final isBookmarked = bookmarkProvider.isBookmarked(
+                "Danau Towuti",
+              );
 
-            return IconButton(
-              icon: Icon(
-                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: Colors.yellow,
-              ),
-              onPressed: () {
-                bookmarkProvider.toggleBookmark({
-                  'title': 'Danau Towuti',
-                  'image':
-                      'https://tse1.mm.bing.net/th/id/OIP.zxN0nrBHh_ignslgSSeOIgHaE_?w=319&h=319&c=7',
-                });
-                final snackBar = SnackBar(
-                  content: Text(
-                    isBookmarked
-                        ? 'Dihapus dari Bookmark'
-                        : 'Ditambahkan ke Bookmark',
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-            );
-          }),
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+                  bookmarkProvider.toggleBookmark({
+                    'title': 'Danau Towuti',
+                    'image':
+                        'https://tse1.mm.bing.net/th/id/OIP.zxN0nrBHh_ignslgSSeOIgHaE_?w=319&h=319&c=7',
+                  });
+                  final snackBar = SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? 'Dihapus dari Bookmark'
+                          : 'Ditambahkan ke Bookmark',
+                    ),
+                    duration: Duration(seconds: 1),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.home),
             tooltip: 'Kembali ke Home',

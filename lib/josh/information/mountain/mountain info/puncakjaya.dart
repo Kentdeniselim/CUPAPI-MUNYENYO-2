@@ -35,41 +35,40 @@ class _puncakjaya extends State<Puncakjaya> {
       appBar: AppBar(
         title: Text(
           "Puncak Jaya",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         backgroundColor: Colors.green,
         actions: [
           Consumer<BookmarkProvider>(
-              builder: (context, bookmarkProvider, child) {
-            final isBookmarked =
-                bookmarkProvider.isBookmarked("Gunung Puncakjaya");
+            builder: (context, bookmarkProvider, child) {
+              final isBookmarked = bookmarkProvider.isBookmarked(
+                "Gunung Puncakjaya",
+              );
 
-            return IconButton(
-              icon: Icon(
-                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: Colors.yellow,
-              ),
-              onPressed: () {
-                bookmarkProvider.toggleBookmark({
-                  'title': 'Gunung Puncakjaya',
-                  'image':
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ05aOg90voUUOz7CpSKGmi1STTbXbDhCBX886clx0hnCAvBIY6RokruwNt7Z_pGdDfKNU&usqp=CAU',
-                });
-                final snackBar = SnackBar(
-                  content: Text(
-                    isBookmarked
-                        ? 'Dihapus dari Bookmark'
-                        : 'Ditambahkan ke Bookmark',
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-            );
-          }),
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+                  bookmarkProvider.toggleBookmark({
+                    'title': 'Gunung Puncakjaya',
+                    'image':
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ05aOg90voUUOz7CpSKGmi1STTbXbDhCBX886clx0hnCAvBIY6RokruwNt7Z_pGdDfKNU&usqp=CAU',
+                  });
+                  final snackBar = SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? 'Dihapus dari Bookmark'
+                          : 'Ditambahkan ke Bookmark',
+                    ),
+                    duration: Duration(seconds: 1),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.home),
             tooltip: 'Kembali ke Home',

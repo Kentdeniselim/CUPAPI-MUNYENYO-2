@@ -37,32 +37,33 @@ class _komodo extends State<Komodo> {
         backgroundColor: Colors.green,
         actions: [
           Consumer<BookmarkProvider>(
-              builder: (context, bookmarkProvider, child) {
-            final isBookmarked = bookmarkProvider.isBookmarked("Komodo");
+            builder: (context, bookmarkProvider, child) {
+              final isBookmarked = bookmarkProvider.isBookmarked("Komodo");
 
-            return IconButton(
-              icon: Icon(
-                isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                color: Colors.yellow,
-              ),
-              onPressed: () {
-                bookmarkProvider.toggleBookmark({
-                  'title': 'Komodo',
-                  'image':
-                      'https://tse3.mm.bing.net/th?id=OIP.j3b528L7v1t0V25Z7uC1agHaE9&w=317&h=317&c=7',
-                });
-                final snackBar = SnackBar(
-                  content: Text(
-                    isBookmarked
-                        ? 'Dihapus dari Bookmark'
-                        : 'Ditambahkan ke Bookmark',
-                  ),
-                  duration: Duration(seconds: 1),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              },
-            );
-          }),
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.yellow,
+                ),
+                onPressed: () {
+                  bookmarkProvider.toggleBookmark({
+                    'title': 'Komodo',
+                    'image':
+                        'https://tse3.mm.bing.net/th?id=OIP.j3b528L7v1t0V25Z7uC1agHaE9&w=317&h=317&c=7',
+                  });
+                  final snackBar = SnackBar(
+                    content: Text(
+                      isBookmarked
+                          ? 'Dihapus dari Bookmark'
+                          : 'Ditambahkan ke Bookmark',
+                    ),
+                    duration: Duration(seconds: 1),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.home),
             tooltip: 'Kembali ke Home',
@@ -100,7 +101,8 @@ class _komodo extends State<Komodo> {
                 "Komodo sekarang terancam punah menurut International Union for Conservation of Nature (IUCN)...",
               ),
               buildImageSection(
-                  "https://assets.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p3/66/2024/05/25/FotoJet-2024-05-25T184047425-2227825778.jpg"),
+                "https://assets.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p3/66/2024/05/25/FotoJet-2024-05-25T184047425-2227825778.jpg",
+              ),
               buildSectionTitle("Habitat"),
               buildParagraph(
                 "Habitat komodo (Varanus komodoensis) terbatas pada beberapa pulau di Indonesia...",
@@ -189,11 +191,7 @@ class _komodo extends State<Komodo> {
 
   Widget buildImageSection(String url) {
     return Column(
-      children: [
-        Center(
-          child: Image.network(url, width: 800, height: 300),
-        ),
-      ],
+      children: [Center(child: Image.network(url, width: 800, height: 300))],
     );
   }
 
