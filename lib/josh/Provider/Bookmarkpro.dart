@@ -6,8 +6,9 @@ class BookmarkProvider with ChangeNotifier {
   List<Map<String, String>> get bookmarks => _bookmarks;
 
   void toggleBookmark(Map<String, String> item) {
-    final existingIndex =
-        _bookmarks.indexWhere((b) => b['title'] == item['title']);
+    final existingIndex = _bookmarks.indexWhere(
+      (b) => b['title'] == item['title'],
+    );
     if (existingIndex >= 0) {
       _bookmarks.removeAt(existingIndex);
     } else {
@@ -25,5 +26,6 @@ class BookmarkProvider with ChangeNotifier {
     _bookmarks.clear();
     notifyListeners();
   }
+
   // --- END NEW CODE ---
 }
