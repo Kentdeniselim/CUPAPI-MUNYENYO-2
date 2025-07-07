@@ -13,10 +13,7 @@ import '../Provider/Bookmarkpro.dart';
 class MainNavigationpro extends StatelessWidget {
   MainNavigationpro({Key? key}) : super(key: key);
 
-  final List<Widget> _pages = [
-    const Home(),
-    BookmarkPage(),
-  ];
+  final List<Widget> _pages = [const Home(), BookmarkPage()];
 
   String _getTitle(int index) {
     switch (index) {
@@ -84,9 +81,7 @@ class MainNavigationpro extends StatelessWidget {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const AboutUsPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const AboutUsPage()),
                 );
               },
             ),
@@ -144,21 +139,25 @@ class MainNavigationpro extends StatelessWidget {
                     return AlertDialog(
                       title: const Text('Clear All Bookmarks?'),
                       content: const Text(
-                          'Are you sure you want to remove all bookmarks? This action cannot be undone.'),
+                        'Are you sure you want to remove all bookmarks? This action cannot be undone.',
+                      ),
                       actions: <Widget>[
                         TextButton(
                           child: const Text('Cancel'),
                           onPressed: () => Navigator.of(context).pop(),
                         ),
                         TextButton(
-                          child: const Text('Clear All',
-                              style: TextStyle(color: Colors.red)),
+                          child: const Text(
+                            'Clear All',
+                            style: TextStyle(color: Colors.red),
+                          ),
                           onPressed: () {
                             bookmarkProvider.clearAllBookmarks();
                             Navigator.of(context).pop();
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text('All bookmarks cleared!')),
+                                content: Text('All bookmarks cleared!'),
+                              ),
                             );
                           },
                         ),
@@ -179,7 +178,9 @@ class MainNavigationpro extends StatelessWidget {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark), label: "Bookmarks"),
+            icon: Icon(Icons.bookmark),
+            label: "Bookmarks",
+          ),
         ],
       ),
     );

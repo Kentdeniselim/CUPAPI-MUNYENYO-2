@@ -39,8 +39,8 @@ class PersonalizeSettings extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const EditProfilePage()), // Navigasi ke halaman edit profil
+                          builder: (context) => const EditProfilePage(),
+                        ), // Navigasi ke halaman edit profil
                       );
                     },
                   ),
@@ -57,8 +57,10 @@ class PersonalizeSettings extends StatelessWidget {
                 Card(
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: SwitchListTile(
-                    title:
-                        const Text('Dark Mode', style: TextStyle(fontSize: 16)),
+                    title: const Text(
+                      'Dark Mode',
+                      style: TextStyle(fontSize: 16),
+                    ),
                     secondary: const Icon(Icons.dark_mode_outlined),
                     value: themeProvider.isDarkMode,
                     onChanged: (value) {
@@ -84,7 +86,8 @@ class PersonalizeSettings extends StatelessWidget {
                     onTap: () {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                            content: Text('Font Style settings coming soon!')),
+                          content: Text('Font Style settings coming soon!'),
+                        ),
                       );
                     },
                   ),
@@ -97,7 +100,8 @@ class PersonalizeSettings extends StatelessWidget {
                     onTap: () {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                            content: Text('Language settings coming soon!')),
+                          content: Text('Language settings coming soon!'),
+                        ),
                       );
                     },
                   ),
