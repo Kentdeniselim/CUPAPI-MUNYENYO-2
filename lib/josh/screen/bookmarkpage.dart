@@ -135,19 +135,23 @@ class BookmarkPage extends StatelessWidget {
                                   ElevatedButton(
                                     onPressed: () {
                                       final page = getDetailPageByTitle(
-                                          item['title'] ?? '');
+                                        item['title'] ?? '',
+                                      );
                                       if (page != null) {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (_) => page),
+                                            builder: (_) => page,
+                                          ),
                                         );
                                       } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
+                                        ScaffoldMessenger.of(
+                                          context,
+                                        ).showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                                'Halaman untuk ${item['title']} belum tersedia'),
+                                              'Halaman untuk ${item['title']} belum tersedia',
+                                            ),
                                           ),
                                         );
                                       }
@@ -155,18 +159,24 @@ class BookmarkPage extends StatelessWidget {
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.white,
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 8),
+                                        horizontal: 12,
+                                        vertical: 8,
+                                      ),
                                     ),
                                     child: Icon(Icons.exit_to_app, size: 18),
                                   ),
                                   SizedBox(width: 8),
                                   IconButton(
-                                    icon: Icon(Icons.delete,
-                                        color: Colors.red, size: 20),
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                      size: 20,
+                                    ),
                                     onPressed: () {
-                                      Provider.of<BookmarkProvider>(context,
-                                              listen: false)
-                                          .toggleBookmark(item);
+                                      Provider.of<BookmarkProvider>(
+                                        context,
+                                        listen: false,
+                                      ).toggleBookmark(item);
                                     },
                                   ),
                                 ],
